@@ -3,7 +3,8 @@
 
 ## Description
 
-This is a HEPTAconnect package.
+This is the ecommerce dataset.
+It provides all common entities for the transfer of data between different ecommerce portals.
 Read more under [Overview](../heptaconnect-docs).
 
 
@@ -20,13 +21,13 @@ Read more under [Overview](../heptaconnect-docs).
 
 ## Contributing
 
-Thank you for considering contributing to this package! Be sure to sign the [CLA](./CLA.md) after creating the pull request. [![CLA assistant](https://cla-assistant.io/readme/badge/HEPTACOM/heptaconnect-repo-base)](https://cla-assistant.io/HEPTACOM/heptaconnect-repo-base)
+Thank you for considering contributing to this package! Be sure to sign the [CLA](./CLA.md) after creating the pull request. [![CLA assistant](https://cla-assistant.io/readme/badge/HEPTACOM/heptaconnect-dataset-ecommerce)](https://cla-assistant.io/HEPTACOM/heptaconnect-dataset-ecommerce)
 
 
 ### Steps to contribute
 
 1. Fork the repository
-2. `git clone yourname/heptaconnect-repo-base`
+2. `git clone yourname/heptaconnect-dataset-ecommerce`
 3. Make your changes to master branch
 4. Create your Pull-Request
 

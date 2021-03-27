@@ -1,10 +1,9 @@
 {
-    "name": "heptacom/heptaconnect-repository-base",
+    "name": "heptacom/heptaconnect-dataset-ecommerce",
     "type": "library",
-    "description": "HEPTAconnect package",
+    "description": "HEPTAconnect dataset for ecommerce entities",
     "keywords": [
-        "heptaconnect-dataset",
-        "heptaconnect-adapter"
+        "heptaconnect-dataset"
     ],
     "license": [
         "AGPL-3.0-or-later",
@@ -15,8 +14,10 @@
             "name": "HEPTACOM GmbH"
         }
     ],
+    "version": "0.0.1",
     "require": {
-        "php": ">=7.4"
+        "php": ">=7.4",
+        "heptacom/heptaconnect-dataset-base": ">=0.0.1"
     },
     "conflict": {
         "nikic/php-parser": "4.7.0"
@@ -40,12 +41,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Heptacom\\HeptaConnect\\": "src/"
+            "Heptacom\\HeptaConnect\\Dataset\\Ecommerce\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Heptacom\\HeptaConnect\\Test\\": "test/"
+            "Heptacom\\HeptaConnect\\Dataset\\Ecommerce\\Test\\": "test/"
         }
     },
     "minimum-stability": "stable"
