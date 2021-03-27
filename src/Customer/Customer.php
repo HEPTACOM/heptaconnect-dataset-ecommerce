@@ -137,12 +137,12 @@ class Customer extends DatasetEntityContract
         return $this;
     }
 
-    public function getSalutation(): Salutation
+    public function getSalutation(): ?Salutation
     {
         return $this->salutation;
     }
 
-    public function setSalutation(Salutation $salutation): self
+    public function setSalutation(?Salutation $salutation): self
     {
         $this->salutation = $salutation;
 
