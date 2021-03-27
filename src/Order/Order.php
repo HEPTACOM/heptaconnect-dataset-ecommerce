@@ -9,7 +9,6 @@ use Heptacom\HeptaConnect\Dataset\Ecommerce\Currency\Currency;
 use Heptacom\HeptaConnect\Dataset\Ecommerce\Customer\Customer;
 use Heptacom\HeptaConnect\Dataset\Ecommerce\PaymentMethod\PaymentMethod;
 use Heptacom\HeptaConnect\Dataset\Ecommerce\SalesChannel\Language;
-use Heptacom\HeptaConnect\Dataset\Ecommerce\ShippingMethod\ShippingMethod;
 
 class Order extends DatasetEntityContract
 {
