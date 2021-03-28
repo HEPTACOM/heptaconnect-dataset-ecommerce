@@ -5,6 +5,7 @@
     "keywords": [
         "heptaconnect-dataset"
     ],
+    "version": "0.0.1",
     "license": [
         "AGPL-3.0-or-later",
         "proprietary"
@@ -14,7 +15,6 @@
             "name": "HEPTACOM GmbH"
         }
     ],
-    "version": "0.0.1",
     "require": {
         "php": ">=7.4",
         "heptacom/heptaconnect-dataset-base": ">=0.0.1"
