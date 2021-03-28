@@ -7,7 +7,7 @@ use Heptacom\HeptaConnect\Dataset\Ecommerce\Price\Condition;
 
 class CustomerDiscountGroupCondition extends Condition
 {
-    protected string $code;
+    protected string $code = '';
 
     public function getCode(): string
     {

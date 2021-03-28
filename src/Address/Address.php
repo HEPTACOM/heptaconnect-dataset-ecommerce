@@ -42,8 +42,9 @@ class Address extends DatasetEntityContract
     {
         parent::__construct();
 
-        $this->names = new StringCollection();
         $this->additionalLines = new StringCollection();
+        $this->names = new StringCollection();
+        $this->country = new Country();
     }
 
     public function getCompany(): string

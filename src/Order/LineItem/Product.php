@@ -10,6 +10,13 @@ class Product extends LineItem
 {
     protected ProductEntity $product;
 
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->product = new ProductEntity();
+    }
+
     public function getProduct(): ProductEntity
     {
         return $this->product;

@@ -7,13 +7,20 @@ use Heptacom\HeptaConnect\Dataset\Base\Contract\DatasetEntityContract;
 
 class CountryState extends DatasetEntityContract
 {
-    protected string $name;
+    protected string $name = '';
 
-    protected string $shortCode;
+    protected string $shortCode = '';
 
-    protected bool $active;
+    protected bool $active = false;
 
     protected Country $country;
+
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->country = new Country();
+    }
 
     public function getName(): string
     {

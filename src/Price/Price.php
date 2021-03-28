@@ -19,7 +19,7 @@ class Price extends DatasetEntityContract
 
     protected int $quantityStart = 0;
 
-    protected string $taxStatus;
+    protected string $taxStatus = self::TAX_STATUS_NET;
 
     protected TaxRuleCollection $taxRules;
 

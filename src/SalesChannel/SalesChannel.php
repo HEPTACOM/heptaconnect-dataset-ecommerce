@@ -10,6 +10,13 @@ class SalesChannel extends DatasetEntityContract
 {
     protected TranslatableString $name;
 
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->name = new TranslatableString();
+    }
+
     public function getName(): TranslatableString
     {
         return $this->name;

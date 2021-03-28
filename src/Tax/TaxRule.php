@@ -7,7 +7,7 @@ use Heptacom\HeptaConnect\Dataset\Base\Contract\DatasetEntityContract;
 
 class TaxRule extends DatasetEntityContract
 {
-    protected float $rate;
+    protected float $rate = 0;
 
     public function getRate(): float
     {
