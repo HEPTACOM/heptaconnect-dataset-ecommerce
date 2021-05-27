@@ -19,6 +19,7 @@ use PHPUnit\Framework\TestCase;
  * @covers \Heptacom\HeptaConnect\Dataset\Ecommerce\Customer\CustomerGroup
  * @covers \Heptacom\HeptaConnect\Dataset\Ecommerce\Customer\CustomerPriceGroup
  * @covers \Heptacom\HeptaConnect\Dataset\Ecommerce\Media\Media
+ * @covers \Heptacom\HeptaConnect\Dataset\Ecommerce\Order\LineItem
  * @covers \Heptacom\HeptaConnect\Dataset\Ecommerce\Order\LineItem\Discount
  * @covers \Heptacom\HeptaConnect\Dataset\Ecommerce\Order\LineItem\Product
  * @covers \Heptacom\HeptaConnect\Dataset\Ecommerce\Order\LineItem\Shipping
@@ -37,6 +38,8 @@ use PHPUnit\Framework\TestCase;
  * @covers \Heptacom\HeptaConnect\Dataset\Ecommerce\Product\Manufacturer
  * @covers \Heptacom\HeptaConnect\Dataset\Ecommerce\Product\Product
  * @covers \Heptacom\HeptaConnect\Dataset\Ecommerce\Product\Unit
+ * @covers \Heptacom\HeptaConnect\Dataset\Ecommerce\Property\PropertyGroup
+ * @covers \Heptacom\HeptaConnect\Dataset\Ecommerce\Property\PropertyValue
  * @covers \Heptacom\HeptaConnect\Dataset\Ecommerce\SalesChannel\Language
  * @covers \Heptacom\HeptaConnect\Dataset\Ecommerce\SalesChannel\SalesChannel
  * @covers \Heptacom\HeptaConnect\Dataset\Ecommerce\ShippingMethod\ShippingMethod
@@ -352,6 +355,28 @@ class EntityTest extends TestCase
         // TODO test setting all properties
 
         $this->entity($ProductUnit);
+
+        // TODO test collection
+    }
+
+    public function testProductPropertyGroup(): void
+    {
+        $PropertyGroup = new Ecommerce\Property\PropertyGroup();
+
+        // TODO test setting all properties
+
+        $this->entity($PropertyGroup);
+
+        // TODO test collection
+    }
+
+    public function testProductPropertyValue(): void
+    {
+        $PropertyValue = new Ecommerce\Property\PropertyValue();
+
+        // TODO test setting all properties
+
+        $this->entity($PropertyValue);
 
         // TODO test collection
     }

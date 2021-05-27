@@ -6,6 +6,7 @@ namespace Heptacom\HeptaConnect\Dataset\Ecommerce\Product;
 use Heptacom\HeptaConnect\Dataset\Base\Contract\DatasetEntityContract;
 use Heptacom\HeptaConnect\Dataset\Base\Translatable\TranslatableString;
 use Heptacom\HeptaConnect\Dataset\Ecommerce\Price\PriceCollection;
+use Heptacom\HeptaConnect\Dataset\Ecommerce\Property\PropertyValueCollection;
 use Heptacom\HeptaConnect\Dataset\Ecommerce\Tax\TaxGroup;
 
 class Product extends DatasetEntityContract
@@ -38,6 +39,8 @@ class Product extends DatasetEntityContract
 
     protected ?Manufacturer $manufacturer = null;
 
+    protected PropertyValueCollection $properties;
+
     public function __construct()
     {
         parent::__construct();
@@ -48,6 +51,7 @@ class Product extends DatasetEntityContract
         $this->categories = new CategoryCollection();
         $this->prices = new PriceCollection();
         $this->taxGroup = new TaxGroup();
+        $this->properties = new PropertyValueCollection();
     }
 
     public function getNumber(): string
@@ -214,6 +218,18 @@ class Product extends DatasetEntityContract
     public function setManufacturer(?Manufacturer $manufacturer): Product
     {
         $this->manufacturer = $manufacturer;
+
+        return $this;
+    }
+
+    public function getProperties(): PropertyValueCollection
+    {
+        return $this->properties;
+    }
+
+    public function setProperties(PropertyValueCollection $properties): self
+    {
+        $this->properties = $properties;
 
         return $this;
     }
