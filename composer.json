@@ -54,5 +54,11 @@
             "type": "path",
             "url": "../**"
         }
+    },
+    "support": {
+        "issues": "https://github.com/HEPTACOM/heptaconnect-dataset-ecommerce/issues",
+        "source": "https://github.com/HEPTACOM/heptaconnect-dataset-ecommerce",
+        "docs": "https://connect.heptacom.de/",
+        "rss": "https://connect.heptacom.de/feed/rss2.xml"
     }
 }
