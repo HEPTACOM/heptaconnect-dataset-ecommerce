@@ -17,7 +17,7 @@
     ],
     "require": {
         "php": ">=7.4",
-        "heptacom/heptaconnect-dataset-base": "<0.2"
+        "heptacom/heptaconnect-dataset-base": ">=0.0.1"
     },
     "conflict": {
         "nikic/php-parser": "4.7.0"
