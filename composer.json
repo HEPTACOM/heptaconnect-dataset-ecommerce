@@ -5,7 +5,7 @@
     "keywords": [
         "heptaconnect-dataset"
     ],
-    "version": "0.1.0",
+    "version": "0.2.0",
     "license": [
         "AGPL-3.0-or-later",
         "proprietary"
@@ -17,7 +17,7 @@
     ],
     "require": {
         "php": ">=7.4",
-        "heptacom/heptaconnect-dataset-base": "<0.2"
+        "heptacom/heptaconnect-dataset-base": "self.version"
     },
     "conflict": {
         "nikic/php-parser": "4.7.0"
