@@ -190,9 +190,11 @@ class Customer extends DatasetEntityContract
         return $this->customerGroup;
     }
 
-    public function setCustomerGroup(?CustomerGroup $customerGroup): void
+    public function setCustomerGroup(?CustomerGroup $customerGroup): self
     {
         $this->customerGroup = $customerGroup;
+
+        return $this;
     }
 
     public function getCustomerPriceGroup(): ?CustomerPriceGroup
