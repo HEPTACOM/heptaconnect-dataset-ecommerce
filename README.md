@@ -5,7 +5,7 @@
 
 This is the ecommerce dataset.
 It provides all common entities for the transfer of data between different ecommerce portals.
-Read more under [Overview](../heptaconnect-docs).
+Read more in the [documentation](https://heptaconnect.io/).
 
 
 ## System requirements
