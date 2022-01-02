@@ -1,30 +1,42 @@
 {
     "name": "heptacom/heptaconnect-dataset-ecommerce",
-    "type": "library",
     "description": "HEPTAconnect dataset for ecommerce entities",
-    "keywords": [
-        "heptaconnect-dataset"
-    ],
-    "version": "0.8.0",
     "license": [
         "AGPL-3.0-or-later",
         "proprietary"
+    ],
+    "type": "library",
+    "version": "0.8.0",
+    "keywords": [
+        "heptaconnect-dataset"
     ],
     "authors": [
         {
             "name": "HEPTACOM GmbH"
         }
     ],
+    "support": {
+        "issues": "https://github.com/HEPTACOM/heptaconnect-dataset-ecommerce/issues",
+        "source": "https://github.com/HEPTACOM/heptaconnect-dataset-ecommerce",
+        "docs": "https://connect.heptacom.de/",
+        "rss": "https://connect.heptacom.de/feed/rss2.xml"
+    },
     "require": {
         "php": ">=7.4",
         "heptacom/heptaconnect-dataset-base": "^0.8"
     },
-    "conflict": {
-        "nikic/php-parser": "4.7.0"
-    },
     "require-dev": {
         "infection/infection": ">=0.21",
         "phpunit/phpunit": ">=9.3 <10"
+    },
+    "conflict": {
+        "nikic/php-parser": "4.7.0"
+    },
+    "repositories": {
+        "heptaconnect-sources": {
+            "type": "path",
+            "url": "../**"
+        }
     },
     "autoload": {
         "psr-4": {
@@ -35,18 +47,6 @@
         "psr-4": {
             "Heptacom\\HeptaConnect\\Dataset\\Ecommerce\\Test\\": "test/"
         }
-    },
-    "repositories": {
-        "heptaconnect-sources": {
-            "type": "path",
-            "url": "../**"
-        }
-    },
-    "support": {
-        "issues": "https://github.com/HEPTACOM/heptaconnect-dataset-ecommerce/issues",
-        "source": "https://github.com/HEPTACOM/heptaconnect-dataset-ecommerce",
-        "docs": "https://connect.heptacom.de/",
-        "rss": "https://connect.heptacom.de/feed/rss2.xml"
     },
     "website": "https://heptaconnect.io"
 }
