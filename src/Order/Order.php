@@ -49,6 +49,8 @@ class Order extends DatasetEntityContract
 
     protected ?PaymentMethod $paymentMethod = null;
 
+    protected ?Refund $refund = null;
+
     public function __construct()
     {
         parent::__construct();
@@ -276,6 +278,23 @@ class Order extends DatasetEntityContract
     public function setPaymentMethod(?PaymentMethod $paymentMethod): self
     {
         $this->paymentMethod = $paymentMethod;
+
+        return $this;
+    }
+
+    public function isRefunded(): bool
+    {
+        return $this->refund !== null;
+    }
+
+    public function getRefund(): ?Refund
+    {
+        return $this->refund;
+    }
+
+    public function setRefund(?Refund $refund): self
+    {
+        $this->refund = $refund;
 
         return $this;
     }
