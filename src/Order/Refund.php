@@ -14,6 +14,13 @@ class Refund extends DatasetEntityContract
 
     private LineItemCollection $lineItems;
 
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->lineItems = new LineItemCollection();
+    }
+
     public function getAmountTotal(): float
     {
         return $this->amountTotal;
