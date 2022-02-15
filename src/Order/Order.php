@@ -284,7 +284,7 @@ class Order extends DatasetEntityContract
 
     public function isRefunded(): bool
     {
-        return $this->refund !== null;
+        return $this->refund instanceof Refund;
     }
 
     public function getRefund(): ?Refund
