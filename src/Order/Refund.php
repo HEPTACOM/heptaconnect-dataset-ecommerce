@@ -26,7 +26,7 @@ class Refund extends DatasetEntityContract
         return $this->amountTotal;
     }
 
-    public function setAmountTotal(float $amountTotal): Refund
+    public function setAmountTotal(float $amountTotal): self
     {
         $this->amountTotal = $amountTotal;
 
@@ -38,7 +38,7 @@ class Refund extends DatasetEntityContract
         return $this->amountNet;
     }
 
-    public function setAmountNet(float $amountNet): Refund
+    public function setAmountNet(float $amountNet): self
     {
         $this->amountNet = $amountNet;
 
@@ -50,7 +50,7 @@ class Refund extends DatasetEntityContract
         return $this->totalTax;
     }
 
-    public function setTotalTax(float $totalTax): Refund
+    public function setTotalTax(float $totalTax): self
     {
         $this->totalTax = $totalTax;
 
@@ -62,7 +62,7 @@ class Refund extends DatasetEntityContract
         return $this->lineItems;
     }
 
-    public function setLineItems(LineItemCollection $lineItems): Refund
+    public function setLineItems(LineItemCollection $lineItems): self
     {
         $this->lineItems = $lineItems;
 
