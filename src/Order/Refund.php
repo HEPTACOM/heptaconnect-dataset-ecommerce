@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Heptacom\HeptaConnect\Dataset\Ecommerce\Order;
 
+use Heptacom\HeptaConnect\Dataset\Base\Contract\DatasetEntityContract;
+
 class Refund extends DatasetEntityContract
 {
     protected float $amountTotal = .0;
