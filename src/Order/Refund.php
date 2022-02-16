@@ -14,6 +14,8 @@ class Refund extends DatasetEntityContract
 
     protected float $totalTax = .0;
 
+    protected bool $isFullRefund = true;
+
     private LineItemCollection $lineItems;
 
     public function __construct()
@@ -68,6 +70,17 @@ class Refund extends DatasetEntityContract
     {
         $this->lineItems = $lineItems;
 
+        return $this;
+    }
+
+    public function isFullRefund(): bool
+    {
+        return $this->isFullRefund;
+    }
+
+    public function setIsFullRefund(bool $isFullRefund): self
+    {
+        $this->isFullRefund = $isFullRefund;
         return $this;
     }
 }
