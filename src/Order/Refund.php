@@ -81,6 +81,7 @@ class Refund extends DatasetEntityContract
     public function setIsFullRefund(bool $isFullRefund): self
     {
         $this->isFullRefund = $isFullRefund;
+
         return $this;
     }
 }
