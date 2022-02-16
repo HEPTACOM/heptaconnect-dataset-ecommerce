@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add property to `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Refund` to flag refund as partial or full refund
+
+### Fixed
+
+- Add missing import of parent class for `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Refund`
+
 ## [0.8.2] - 2022-02-15
 
 ### Added
