@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Heptacom\HeptaConnect\Dataset\Ecommerce\Order;
 
+use Heptacom\HeptaConnect\Dataset\Base\Contract\DatasetEntityContract;
+
 class Refund extends DatasetEntityContract
 {
     protected float $amountTotal = .0;
@@ -11,6 +13,8 @@ class Refund extends DatasetEntityContract
     protected float $amountNet = .0;
 
     protected float $totalTax = .0;
+
+    protected bool $isFullRefund = true;
 
     private LineItemCollection $lineItems;
 
@@ -65,6 +69,18 @@ class Refund extends DatasetEntityContract
     public function setLineItems(LineItemCollection $lineItems): self
     {
         $this->lineItems = $lineItems;
+
+        return $this;
+    }
+
+    public function isFullRefund(): bool
+    {
+        return $this->isFullRefund;
+    }
+
+    public function setIsFullRefund(bool $isFullRefund): self
+    {
+        $this->isFullRefund = $isFullRefund;
 
         return $this;
     }
