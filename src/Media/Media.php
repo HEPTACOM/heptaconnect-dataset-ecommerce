@@ -5,34 +5,23 @@ declare(strict_types=1);
 namespace Heptacom\HeptaConnect\Dataset\Ecommerce\Media;
 
 use Heptacom\HeptaConnect\Dataset\Base\Contract\DatasetEntityContract;
+use Heptacom\HeptaConnect\Dataset\Base\File\FileReferenceContract;
 use Heptacom\HeptaConnect\Dataset\Base\Translatable\TranslatableString;
 
 class Media extends DatasetEntityContract
 {
-    protected string $normalizedStream = '';
-
     protected string $mimeType = '';
 
     protected string $filename = '';
 
     protected TranslatableString $title;
 
+    protected ?FileReferenceContract $file = null;
+
     public function __construct()
     {
         parent::__construct();
         $this->title = new TranslatableString();
-    }
-
-    public function getNormalizedStream(): ?string
-    {
-        return $this->normalizedStream;
-    }
-
-    public function setNormalizedStream(string $normalizedStream): Media
-    {
-        $this->normalizedStream = $normalizedStream;
-
-        return $this;
     }
 
     public function getMimeType(): string
@@ -67,6 +56,18 @@ class Media extends DatasetEntityContract
     public function setTitle(TranslatableString $title): self
     {
         $this->title = $title;
+
+        return $this;
+    }
+
+    public function getFile(): ?FileReferenceContract
+    {
+        return $this->file;
+    }
+
+    public function setFile(?FileReferenceContract $file): self
+    {
+        $this->file = $file;
 
         return $this;
     }

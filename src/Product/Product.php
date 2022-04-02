@@ -6,6 +6,7 @@ namespace Heptacom\HeptaConnect\Dataset\Ecommerce\Product;
 
 use Heptacom\HeptaConnect\Dataset\Base\Contract\DatasetEntityContract;
 use Heptacom\HeptaConnect\Dataset\Base\Translatable\TranslatableString;
+use Heptacom\HeptaConnect\Dataset\Ecommerce\Media\MediaCollection;
 use Heptacom\HeptaConnect\Dataset\Ecommerce\Price\PriceCollection;
 use Heptacom\HeptaConnect\Dataset\Ecommerce\Property\PropertyValueCollection;
 use Heptacom\HeptaConnect\Dataset\Ecommerce\Tax\TaxGroup;
@@ -42,6 +43,8 @@ class Product extends DatasetEntityContract
 
     protected PropertyValueCollection $properties;
 
+    protected MediaCollection $medias;
+
     public function __construct()
     {
         parent::__construct();
@@ -53,6 +56,14 @@ class Product extends DatasetEntityContract
         $this->prices = new PriceCollection();
         $this->taxGroup = new TaxGroup();
         $this->properties = new PropertyValueCollection();
+        $this->medias = new MediaCollection();
+    }
+
+    public function __wakeup(): void
+    {
+        if (!isset($this->medias)) {
+            $this->medias = new MediaCollection();
+        }
     }
 
     public function getNumber(): string
@@ -231,6 +242,18 @@ class Product extends DatasetEntityContract
     public function setProperties(PropertyValueCollection $properties): self
     {
         $this->properties = $properties;
+
+        return $this;
+    }
+
+    public function getMedias(): MediaCollection
+    {
+        return $this->medias;
+    }
+
+    public function setMedias(MediaCollection $medias): self
+    {
+        $this->medias = $medias;
 
         return $this;
     }
