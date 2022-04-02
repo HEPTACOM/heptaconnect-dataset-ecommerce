@@ -59,7 +59,7 @@ class Product extends DatasetEntityContract
         $this->medias = new MediaCollection();
     }
 
-    public function __wakeup()
+    public function __wakeup(): void
     {
         if (!isset($this->medias)) {
             $this->medias = new MediaCollection();
