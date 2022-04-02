@@ -15,20 +15,26 @@ The version numbers are structured like `GENERATION.MAJOR.MINOR.PATCH`:
 
 ### Added
 
-- Add property medias to `\Heptacom\HeptaConnect\Dataset\Ecommerce\Product\Product` as `\Heptacom\HeptaConnect\Dataset\Ecommerce\Media\MediaCollection`
-- Use `\Heptacom\HeptaConnect\Dataset\Base\File\FileReferenceContract` in `\Heptacom\HeptaConnect\Dataset\Ecommerce\Media\Media` to normalize file usage in media transfer
-
 ### Changed
 
 ### Deprecated
 
 ### Removed
 
-- Replace `\Heptacom\HeptaConnect\Dataset\Ecommerce\Media\Media::getNormalizedStream` and `\Heptacom\HeptaConnect\Dataset\Ecommerce\Media\Media::setNormalizedStream` with `\Heptacom\HeptaConnect\Dataset\Ecommerce\Media\Media::getFile` and `\Heptacom\HeptaConnect\Dataset\Ecommerce\Media\Media::setFile`. To migrate stop job dispatching processes and process all jobs to prevent deserialization issue
-
 ### Fixed
 
 ### Security
+
+## [0.9.0.0] - 2022-04-02
+
+### Added
+
+- Add property medias to `\Heptacom\HeptaConnect\Dataset\Ecommerce\Product\Product` as `\Heptacom\HeptaConnect\Dataset\Ecommerce\Media\MediaCollection`
+- Use `\Heptacom\HeptaConnect\Dataset\Base\File\FileReferenceContract` in `\Heptacom\HeptaConnect\Dataset\Ecommerce\Media\Media` to normalize file usage in media transfer
+
+### Removed
+
+- Replace `\Heptacom\HeptaConnect\Dataset\Ecommerce\Media\Media::getNormalizedStream` and `\Heptacom\HeptaConnect\Dataset\Ecommerce\Media\Media::setNormalizedStream` with `\Heptacom\HeptaConnect\Dataset\Ecommerce\Media\Media::getFile` and `\Heptacom\HeptaConnect\Dataset\Ecommerce\Media\Media::setFile`. To migrate stop job dispatching processes and process all jobs to prevent deserialization issue
 
 ## [0.8.3] - 2022-02-16
 
