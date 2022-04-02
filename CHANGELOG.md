@@ -15,6 +15,8 @@ The version numbers are structured like `GENERATION.MAJOR.MINOR.PATCH`:
 
 ### Added
 
+- Add property medias to `\Heptacom\HeptaConnect\Dataset\Ecommerce\Product\Product` as `\Heptacom\HeptaConnect\Dataset\Ecommerce\Media\MediaCollection`
+
 ### Changed
 
 ### Deprecated
