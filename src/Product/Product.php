@@ -41,6 +41,8 @@ class Product extends DatasetEntityContract
 
     protected ?Manufacturer $manufacturer = null;
 
+    protected string $manufacturerNumber = '';
+
     protected PropertyValueCollection $properties;
 
     protected MediaCollection $medias;
@@ -234,6 +236,16 @@ class Product extends DatasetEntityContract
         return $this;
     }
 
+    public function getManufacturerNumber(): string
+    {
+        return $this->manufacturerNumber;
+    }
+
+    public function setManufacturerNumber(string $manufacturerNumber): void
+    {
+        $this->manufacturerNumber = $manufacturerNumber;
+    }
+
     public function getProperties(): PropertyValueCollection
     {
         return $this->properties;
@@ -257,4 +269,5 @@ class Product extends DatasetEntityContract
 
         return $this;
     }
+
 }
