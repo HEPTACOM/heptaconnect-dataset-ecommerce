@@ -8,5 +8,5 @@ interface ShipmentAwareInterface
 {
     public function getShipment(): Shipment;
 
-    public function setShipment(Shipment $shipment): void;
+    public function setShipment(Shipment $shipment): self;
 }

@@ -28,9 +28,11 @@ class Shipment extends DatasetEntityContract
         return $this->trackingCode;
     }
 
-    public function setTrackingCode(string $trackingCode): void
+    public function setTrackingCode(string $trackingCode): self
     {
         $this->trackingCode = $trackingCode;
+
+        return $this;
     }
 
     public function getShippingAddress(): Address
@@ -38,9 +40,11 @@ class Shipment extends DatasetEntityContract
         return $this->shippingAddress;
     }
 
-    public function setShippingAddress(Address $shippingAddress): void
+    public function setShippingAddress(Address $shippingAddress): self
     {
         $this->shippingAddress = $shippingAddress;
+
+        return $this;
     }
 
     public function getShipmentState(): ShipmentState
@@ -48,8 +52,10 @@ class Shipment extends DatasetEntityContract
         return $this->shipmentState;
     }
 
-    public function setShipmentState(ShipmentState $shipmentState): void
+    public function setShipmentState(ShipmentState $shipmentState): self
     {
         $this->shipmentState = $shipmentState;
+
+        return $this;
     }
 }
