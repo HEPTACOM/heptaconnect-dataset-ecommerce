@@ -8,7 +8,7 @@ use Heptacom\HeptaConnect\Dataset\Base\Contract\DatasetEntityContract;
 use Heptacom\HeptaConnect\Dataset\Ecommerce\Address\Address;
 use Heptacom\HeptaConnect\Dataset\Ecommerce\Currency\Currency;
 use Heptacom\HeptaConnect\Dataset\Ecommerce\Customer\Customer;
-use Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Shipment\ShipmentAwareTrait;
+use Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Shipment\ShipmentAwareInterface;
 use Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Shipment\ShipmentCollection;
 use Heptacom\HeptaConnect\Dataset\Ecommerce\PaymentMethod\PaymentMethod;
 use Heptacom\HeptaConnect\Dataset\Ecommerce\SalesChannel\Language;
@@ -301,18 +301,23 @@ class Order extends DatasetEntityContract
         return $this;
     }
 
-    public function getShipments(): ShipmentCollection
+    public function aggregateShipments(): ShipmentCollection
     {
-        $shipments = [];
+        $shipmentAwareLineItems = $this->lineItems->filter(fn ($lineItem) => $lineItem instanceof ShipmentAwareInterface);
+        $shipments = iterable_to_array(iterable_map($shipmentAwareLineItems, fn ($lineItem) => $lineItem->getShipment()));
 
-        $shipmentAwareLineItems = $this->lineItems->filter(fn ($lineItem) => \in_array(ShipmentAwareTrait::class, \class_uses($lineItem), true));
-        foreach ($shipmentAwareLineItems as $lineItem) {
-            $shipmentNo = $lineItem->getShipment()->getShipmentNumber();
-            if (!isset($shipments[$shipmentNo])) {
-                $shipments[$shipmentNo] = $lineItem->getShipment();
+        $uniqueShipments = [];
+
+        foreach ($shipments as $shipment) {
+            foreach ($uniqueShipments as $uniqueShipment) {
+                if ($uniqueShipment === $shipment) {
+                    continue 2;
+                }
             }
+
+            $uniqueShipments[] = $shipment;
         }
 
-        return new ShipmentCollection(\array_values($shipments));
+        return new ShipmentCollection(\array_values($uniqueShipments));
     }
 }
