@@ -9,8 +9,6 @@ use Heptacom\HeptaConnect\Dataset\Ecommerce\Address\Address;
 
 class Shipment extends DatasetEntityContract
 {
-    protected string $shipmentNumber = '';
-
     protected string $trackingCode = '';
 
     protected Address $shippingAddress;
@@ -23,16 +21,6 @@ class Shipment extends DatasetEntityContract
 
         $this->shippingAddress = new Address();
         $this->shipmentState = new ShipmentState();
-    }
-
-    public function getShipmentNumber(): string
-    {
-        return $this->shipmentNumber;
-    }
-
-    public function setShipmentNumber(string $shipmentNumber): void
-    {
-        $this->shipmentNumber = $shipmentNumber;
     }
 
     public function getTrackingCode(): string
