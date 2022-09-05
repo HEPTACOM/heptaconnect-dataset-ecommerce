@@ -8,6 +8,7 @@ use Heptacom\HeptaConnect\Dataset\Base\Contract\DatasetEntityContract;
 use Heptacom\HeptaConnect\Dataset\Ecommerce\Address\Address;
 use Heptacom\HeptaConnect\Dataset\Ecommerce\Currency\Currency;
 use Heptacom\HeptaConnect\Dataset\Ecommerce\Customer\Customer;
+use Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Shipment\ShipmentAwareTrait;
 use Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Shipment\ShipmentCollection;
 use Heptacom\HeptaConnect\Dataset\Ecommerce\PaymentMethod\PaymentMethod;
 use Heptacom\HeptaConnect\Dataset\Ecommerce\SalesChannel\Language;
@@ -44,8 +45,6 @@ class Order extends DatasetEntityContract
 
     protected PaymentState $paymentState;
 
-    protected ShipmentCollection $shipments;
-
     protected ?string $deliveryTrackingCode = null;
 
     protected ?string $paymentTransactionCode = null;
@@ -67,7 +66,6 @@ class Order extends DatasetEntityContract
         $this->language = new Language();
         $this->orderState = new OrderState();
         $this->paymentState = new PaymentState();
-        $this->shipments = new ShipmentCollection();
     }
 
     public function getNumber(): string
@@ -305,11 +303,16 @@ class Order extends DatasetEntityContract
 
     public function getShipments(): ShipmentCollection
     {
-        return $this->shipments;
-    }
+        $shipments = [];
 
-    public function setShipments(ShipmentCollection $shipments): void
-    {
-        $this->shipments = $shipments;
+        $shipmentAwareLineItems = $this->lineItems->filter(fn ($lineItem) => \in_array(ShipmentAwareTrait::class, \class_uses($lineItem), true));
+        foreach ($shipmentAwareLineItems as $lineItem) {
+            $shipmentNo = $lineItem->getShipment()->getShipmentNumber();
+            if (!isset($shipments[$shipmentNo])) {
+                $shipments[$shipmentNo] = $lineItem->getShipment();
+            }
+        }
+
+        return new ShipmentCollection(\array_values($shipments));
     }
 }
