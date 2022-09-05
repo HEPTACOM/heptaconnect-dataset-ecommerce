@@ -318,6 +318,6 @@ class Order extends DatasetEntityContract
             $uniqueShipments[] = $shipment;
         }
 
-        return new ShipmentCollection(\array_values($uniqueShipments));
+        return new ShipmentCollection($uniqueShipments);
     }
 }
