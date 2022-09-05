@@ -5,10 +5,13 @@ declare(strict_types=1);
 namespace Heptacom\HeptaConnect\Dataset\Ecommerce\Order\LineItem;
 
 use Heptacom\HeptaConnect\Dataset\Ecommerce\Order\LineItem;
+use Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Shipment\ShipmentAwareTrait;
 use Heptacom\HeptaConnect\Dataset\Ecommerce\Product\Product as ProductEntity;
 
 class Product extends LineItem
 {
+    use ShipmentAwareTrait;
+
     protected ProductEntity $product;
 
     public function __construct()
