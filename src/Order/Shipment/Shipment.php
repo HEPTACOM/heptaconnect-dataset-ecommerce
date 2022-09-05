@@ -6,6 +6,7 @@ namespace Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Shipment;
 
 use Heptacom\HeptaConnect\Dataset\Base\Contract\DatasetEntityContract;
 use Heptacom\HeptaConnect\Dataset\Ecommerce\Address\Address;
+use Heptacom\HeptaConnect\Dataset\Ecommerce\ShippingMethod\ShippingMethod;
 
 class Shipment extends DatasetEntityContract
 {
@@ -15,12 +16,15 @@ class Shipment extends DatasetEntityContract
 
     protected ShipmentState $shipmentState;
 
+    protected ShippingMethod $shippingMethod;
+
     public function __construct()
     {
         parent::__construct();
 
         $this->shippingAddress = new Address();
         $this->shipmentState = new ShipmentState();
+        $this->shippingMethod = new ShippingMethod();
     }
 
     public function getTrackingCode(): string
@@ -55,6 +59,18 @@ class Shipment extends DatasetEntityContract
     public function setShipmentState(ShipmentState $shipmentState): self
     {
         $this->shipmentState = $shipmentState;
+
+        return $this;
+    }
+
+    public function getShippingMethod(): ShippingMethod
+    {
+        return $this->shippingMethod;
+    }
+
+    public function setShippingMethod(ShippingMethod $shippingMethod): self
+    {
+        $this->shippingMethod = $shippingMethod;
 
         return $this;
     }
