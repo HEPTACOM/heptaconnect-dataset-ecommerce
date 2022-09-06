@@ -45,8 +45,6 @@ class Order extends DatasetEntityContract
 
     protected PaymentState $paymentState;
 
-    protected ?string $deliveryTrackingCode = null;
-
     protected ?string $paymentTransactionCode = null;
 
     protected ?PaymentMethod $paymentMethod = null;
@@ -244,18 +242,6 @@ class Order extends DatasetEntityContract
     public function setPaymentState(PaymentState $paymentState): self
     {
         $this->paymentState = $paymentState;
-
-        return $this;
-    }
-
-    public function getDeliveryTrackingCode(): ?string
-    {
-        return $this->deliveryTrackingCode;
-    }
-
-    public function setDeliveryTrackingCode(?string $deliveryTrackingCode): self
-    {
-        $this->deliveryTrackingCode = $deliveryTrackingCode;
 
         return $this;
     }
