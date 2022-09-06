@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Shipment;
+namespace Heptacom\HeptaConnect\Dataset\Ecommerce\ShippingMethod;
 
 use Heptacom\HeptaConnect\Dataset\Base\Contract\DatasetEntityContract;
 use Heptacom\HeptaConnect\Dataset\Base\Translatable\TranslatableString;
