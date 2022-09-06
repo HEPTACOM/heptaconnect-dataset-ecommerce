@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Heptacom\HeptaConnect\Dataset\Ecommerce\PaymentMethod;
+namespace Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Transaction;
 
 use Heptacom\HeptaConnect\Dataset\Base\Contract\DatasetEntityContract;
 use Heptacom\HeptaConnect\Dataset\Base\Translatable\TranslatableString;

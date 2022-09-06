@@ -8,7 +8,7 @@ use Heptacom\HeptaConnect\Dataset\Base\Contract\DatasetEntityContract;
 use Heptacom\HeptaConnect\Dataset\Ecommerce\Address\Address;
 use Heptacom\HeptaConnect\Dataset\Ecommerce\Currency\Currency;
 use Heptacom\HeptaConnect\Dataset\Ecommerce\Customer\Customer;
-use Heptacom\HeptaConnect\Dataset\Ecommerce\PaymentMethod\PaymentMethod;
+use Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Transaction\TransactionCollection;
 use Heptacom\HeptaConnect\Dataset\Ecommerce\SalesChannel\Language;
 
 class Order extends DatasetEntityContract
@@ -41,15 +41,7 @@ class Order extends DatasetEntityContract
 
     protected OrderState $orderState;
 
-    protected PaymentState $paymentState;
-
-    protected ?string $deliveryTrackingCode = null;
-
-    protected ?string $paymentTransactionCode = null;
-
-    protected ?PaymentMethod $paymentMethod = null;
-
-    protected ?Refund $refund = null;
+    protected TransactionCollection $transactions;
 
     public function __construct()
     {
@@ -63,7 +55,7 @@ class Order extends DatasetEntityContract
         $this->shippingAddress = new Address();
         $this->language = new Language();
         $this->orderState = new OrderState();
-        $this->paymentState = new PaymentState();
+        $this->transactions = new TransactionCollection();
     }
 
     public function getNumber(): string
@@ -234,67 +226,14 @@ class Order extends DatasetEntityContract
         return $this;
     }
 
-    public function getPaymentState(): PaymentState
+    public function getTransactions(): TransactionCollection
     {
-        return $this->paymentState;
+        return $this->transactions;
     }
 
-    public function setPaymentState(PaymentState $paymentState): self
+    public function setTransactions(TransactionCollection $transactions): self
     {
-        $this->paymentState = $paymentState;
-
-        return $this;
-    }
-
-    public function getDeliveryTrackingCode(): ?string
-    {
-        return $this->deliveryTrackingCode;
-    }
-
-    public function setDeliveryTrackingCode(?string $deliveryTrackingCode): self
-    {
-        $this->deliveryTrackingCode = $deliveryTrackingCode;
-
-        return $this;
-    }
-
-    public function getPaymentTransactionCode(): ?string
-    {
-        return $this->paymentTransactionCode;
-    }
-
-    public function setPaymentTransactionCode(?string $paymentTransactionCode): self
-    {
-        $this->paymentTransactionCode = $paymentTransactionCode;
-
-        return $this;
-    }
-
-    public function getPaymentMethod(): ?PaymentMethod
-    {
-        return $this->paymentMethod;
-    }
-
-    public function setPaymentMethod(?PaymentMethod $paymentMethod): self
-    {
-        $this->paymentMethod = $paymentMethod;
-
-        return $this;
-    }
-
-    public function isRefunded(): bool
-    {
-        return $this->refund instanceof Refund;
-    }
-
-    public function getRefund(): ?Refund
-    {
-        return $this->refund;
-    }
-
-    public function setRefund(?Refund $refund): self
-    {
-        $this->refund = $refund;
+        $this->transactions = $transactions;
 
         return $this;
     }

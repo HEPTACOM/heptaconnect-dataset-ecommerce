@@ -2,11 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Heptacom\HeptaConnect\Dataset\Ecommerce\Order;
+namespace Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Transaction;
 
 use Heptacom\HeptaConnect\Dataset\Base\Contract\DatasetEntityContract;
+use Heptacom\HeptaConnect\Dataset\Ecommerce\Order\LineItemCollection;
 
-class Refund extends DatasetEntityContract
+class Transaction extends DatasetEntityContract
 {
     protected float $amountTotal = .0;
 
@@ -14,7 +15,11 @@ class Refund extends DatasetEntityContract
 
     protected float $totalTax = .0;
 
-    protected bool $isFullRefund = true;
+    protected string $transactionCode = '';
+
+    protected PaymentState $paymentState;
+
+    protected PaymentMethod $paymentMethod;
 
     private LineItemCollection $lineItems;
 
@@ -22,6 +27,8 @@ class Refund extends DatasetEntityContract
     {
         parent::__construct();
 
+        $this->paymentState = new PaymentState();
+        $this->paymentMethod = new PaymentMethod();
         $this->lineItems = new LineItemCollection();
     }
 
@@ -61,6 +68,18 @@ class Refund extends DatasetEntityContract
         return $this;
     }
 
+    public function getPaymentState(): PaymentState
+    {
+        return $this->paymentState;
+    }
+
+    public function setPaymentState(PaymentState $paymentState): self
+    {
+        $this->paymentState = $paymentState;
+
+        return $this;
+    }
+
     public function getLineItems(): LineItemCollection
     {
         return $this->lineItems;
@@ -73,14 +92,26 @@ class Refund extends DatasetEntityContract
         return $this;
     }
 
-    public function isFullRefund(): bool
+    public function getTransactionCode(): string
     {
-        return $this->isFullRefund;
+        return $this->transactionCode;
     }
 
-    public function setIsFullRefund(bool $isFullRefund): self
+    public function setTransactionCode(string $transactionCode): self
     {
-        $this->isFullRefund = $isFullRefund;
+        $this->transactionCode = $transactionCode;
+
+        return $this;
+    }
+
+    public function getPaymentMethod(): PaymentMethod
+    {
+        return $this->paymentMethod;
+    }
+
+    public function setPaymentMethod(PaymentMethod $paymentMethod): self
+    {
+        $this->paymentMethod = $paymentMethod;
 
         return $this;
     }

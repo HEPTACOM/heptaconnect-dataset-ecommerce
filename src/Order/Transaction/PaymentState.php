@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Heptacom\HeptaConnect\Dataset\Ecommerce\Order;
+namespace Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Transaction;
 
 use Heptacom\HeptaConnect\Dataset\Base\Contract\DatasetEntityContract;
 
