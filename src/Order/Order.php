@@ -81,6 +81,11 @@ class Order extends DatasetEntityContract
         $this->paymentState = new PaymentState();
     }
 
+    public function __wakeup()
+    {
+        $this->transactions = new TransactionCollection();
+    }
+
     public function getNumber(): string
     {
         return $this->number;
