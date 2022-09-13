@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Transaction;
+namespace Heptacom\HeptaConnect\Dataset\Ecommerce\Order;
 
 use Heptacom\HeptaConnect\Dataset\Base\Contract\DatasetEntityContract;
-use Heptacom\HeptaConnect\Dataset\Ecommerce\Order\LineItemCollection;
+use Heptacom\HeptaConnect\Dataset\Ecommerce\PaymentMethod\PaymentMethod;
 
 class Transaction extends DatasetEntityContract
 {

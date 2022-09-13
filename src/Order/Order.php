@@ -8,7 +8,6 @@ use Heptacom\HeptaConnect\Dataset\Base\Contract\DatasetEntityContract;
 use Heptacom\HeptaConnect\Dataset\Ecommerce\Address\Address;
 use Heptacom\HeptaConnect\Dataset\Ecommerce\Currency\Currency;
 use Heptacom\HeptaConnect\Dataset\Ecommerce\Customer\Customer;
-use Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Transaction\TransactionCollection;
 use Heptacom\HeptaConnect\Dataset\Ecommerce\SalesChannel\Language;
 
 class Order extends DatasetEntityContract
@@ -40,6 +39,8 @@ class Order extends DatasetEntityContract
     protected Language $language;
 
     protected OrderState $orderState;
+    
+    protected ?string $deliveryTrackingCode = null;
 
     protected TransactionCollection $transactions;
 
@@ -222,6 +223,18 @@ class Order extends DatasetEntityContract
     public function setOrderState(OrderState $orderState): self
     {
         $this->orderState = $orderState;
+
+        return $this;
+    }
+
+    public function getDeliveryTrackingCode(): ?string
+    {
+        return $this->deliveryTrackingCode;
+    }
+
+    public function setDeliveryTrackingCode(?string $deliveryTrackingCode): self
+    {
+        $this->deliveryTrackingCode = $deliveryTrackingCode;
 
         return $this;
     }
