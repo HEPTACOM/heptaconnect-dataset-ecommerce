@@ -8,6 +8,7 @@ use Heptacom\HeptaConnect\Dataset\Base\Contract\DatasetEntityContract;
 use Heptacom\HeptaConnect\Dataset\Ecommerce\Address\Address;
 use Heptacom\HeptaConnect\Dataset\Ecommerce\Currency\Currency;
 use Heptacom\HeptaConnect\Dataset\Ecommerce\Customer\Customer;
+use Heptacom\HeptaConnect\Dataset\Ecommerce\PaymentMethod\PaymentMethod;
 use Heptacom\HeptaConnect\Dataset\Ecommerce\SalesChannel\Language;
 
 class Order extends DatasetEntityContract
@@ -39,8 +40,28 @@ class Order extends DatasetEntityContract
     protected Language $language;
 
     protected OrderState $orderState;
-    
+
+    /**
+     * @deprecated Create a "Transaction" instead and it to the "TransactionCollection" of the ”Order"
+     */
+    protected PaymentState $paymentState;
+
     protected ?string $deliveryTrackingCode = null;
+
+    /**
+     * @deprecated This value is part of individual Transactions in the TransactionCollection going forward
+     */
+    protected ?string $paymentTransactionCode = null;
+
+    /**
+     * @deprecated This value is part of individual Transactions in the TransactionCollection going forward
+     */
+    protected ?PaymentMethod $paymentMethod = null;
+
+    /**
+     * @deprecated This value is part of individual Transactions in the TransactionCollection going forward
+     */
+    protected ?Refund $refund = null;
 
     protected TransactionCollection $transactions;
 
@@ -57,6 +78,7 @@ class Order extends DatasetEntityContract
         $this->language = new Language();
         $this->orderState = new OrderState();
         $this->transactions = new TransactionCollection();
+        $this->paymentState = new PaymentState();
     }
 
     public function getNumber(): string
@@ -235,6 +257,86 @@ class Order extends DatasetEntityContract
     public function setDeliveryTrackingCode(?string $deliveryTrackingCode): self
     {
         $this->deliveryTrackingCode = $deliveryTrackingCode;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated This value is part of individual Transactions in the TransactionCollection going forward
+     */
+    public function getPaymentState(): PaymentState
+    {
+        return $this->paymentState;
+    }
+
+    /**
+     * @deprecated This value is part of individual Transactions in the TransactionCollection going forward
+     */
+    public function setPaymentState(PaymentState $paymentState): self
+    {
+        $this->paymentState = $paymentState;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated This value is part of individual Transactions in the TransactionCollection going forward
+     */
+    public function getPaymentTransactionCode(): ?string
+    {
+        return $this->paymentTransactionCode;
+    }
+
+    /**
+     * @deprecated This value is part of individual Transactions in the TransactionCollection going forward
+     */
+    public function setPaymentTransactionCode(?string $paymentTransactionCode): self
+    {
+        $this->paymentTransactionCode = $paymentTransactionCode;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated This value is part of individual Transactions in the TransactionCollection going forward
+     */
+    public function getPaymentMethod(): ?PaymentMethod
+    {
+        return $this->paymentMethod;
+    }
+
+    /**
+     * @deprecated This value is part of individual Transactions in the TransactionCollection going forward
+     */
+    public function setPaymentMethod(?PaymentMethod $paymentMethod): self
+    {
+        $this->paymentMethod = $paymentMethod;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated This value is part of individual Transactions in the TransactionCollection going forward
+     */
+    public function isRefunded(): bool
+    {
+        return $this->refund instanceof Refund;
+    }
+
+    /**
+     * @deprecated This value is part of individual Transactions in the TransactionCollection going forward
+     */
+    public function getRefund(): ?Refund
+    {
+        return $this->refund;
+    }
+
+    /**
+     * @deprecated This value is part of individual Transactions in the TransactionCollection going forward
+     */
+    public function setRefund(?Refund $refund): self
+    {
+        $this->refund = $refund;
 
         return $this;
     }
