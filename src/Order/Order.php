@@ -46,7 +46,7 @@ class Order extends DatasetEntityContract
     protected PaymentState $paymentState;
 
     /**
-     * @deprecated Use deliveryTrackingCode of "Shipment" instead.
+     * @deprecated use deliveryTrackingCode of "Shipment" instead
      */
     protected ?string $deliveryTrackingCode = null;
 
@@ -252,16 +252,17 @@ class Order extends DatasetEntityContract
     }
 
     /**
-     * @deprecated Use deliveryTrackingCode of "Shipment" instead.
+     * @deprecated use deliveryTrackingCode of "Shipment" instead
      */
     public function getDeliveryTrackingCode(): ?string
     {
         trigger_deprecation('heptacom/heptaconnect-dataset-ecommerce', '0.9.0.0', 'Using "getDeliveryTrackingCode()" on Orders is deprecated. Deliveries and their trackingCodes are handled by "Shipment" going forward.');
+
         return $this->deliveryTrackingCode;
     }
 
     /**
-     * @deprecated Use deliveryTrackingCode of "Shipment" instead.
+     * @deprecated use deliveryTrackingCode of "Shipment" instead
      */
     public function setDeliveryTrackingCode(?string $deliveryTrackingCode): self
     {
