@@ -15,7 +15,7 @@ trait ShipmentAwareTrait
         return $this;
     }
 
-    public function getShipment(): Shipment
+    public function getShipment(): ?Shipment
     {
         return $this->shipment;
     }
