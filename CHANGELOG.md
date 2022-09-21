@@ -21,12 +21,18 @@ The version numbers are structured like `GENERATION.MAJOR.MINOR.PATCH`:
 - Add `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Shipment\ShipmentAwareTrait` as supporting implementation for every entity implementing `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Shipment\ShipmentAwareInterface`
 - Make `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\LineItem\Shipping` and `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\LineItem\Product` aware of their related shipments by implementing `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Shipment\ShipmentAwareInterface`
 - Add `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::aggregateShipments` to collect shipment information from all line items
+- Add `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Transaction` entity with `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\TransactionCollection` to hold payment transaction related data with optional relation to line items to allow payments without context
+- Add `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Credit` entity based on `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Transaction`
+- Add `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Payment` entity based on `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Transaction`
 
 ### Changed
+
+- Extract `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Transaction` entity from `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Refund` to represent any type of payment
 
 ### Deprecated
 
 - Add deprecation warnings to usage of `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::$deliveryTrackingCode` in `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::getDeliveryTrackingCode` and `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::setDeliveryTrackingCode`. Use `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::aggregateShipments` with `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Shipment\Shipment` and implementations of `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Shipment\ShipmentAwareInterface` instead
+- Add deprecation warnings to usage of the payment related properties `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::$paymentState`, `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::$paymentTransactionCode`, `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::$paymentMethod` and `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::$refund` in `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::getPaymentState`, `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::setPaymentState`, `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::getPaymentTransactionCode`, `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::setPaymentTransactionCode`, `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::getPaymentMethod`, `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::setPaymentMethod`, `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::isRefunded`, `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::getRefund` and `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::setRefund`. Use `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::getTransactions` with implementations of `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Transaction` instead
 
 ### Removed
 
