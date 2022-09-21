@@ -24,6 +24,7 @@ The version numbers are structured like `GENERATION.MAJOR.MINOR.PATCH`:
 - Add `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Transaction` entity with `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\TransactionCollection` to hold payment transaction related data with optional relation to line items to allow payments without context
 - Add `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Credit` entity based on `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Transaction`
 - Add `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Payment` entity based on `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Transaction`
+- Add property `manufacturerNumber` to `\Heptacom\HeptaConnect\Dataset\Ecommerce\Product\Product` to store manufacturer numbers
 
 ### Changed
 
