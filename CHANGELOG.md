@@ -15,9 +15,18 @@ The version numbers are structured like `GENERATION.MAJOR.MINOR.PATCH`:
 
 ### Added
 
+- Add `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Shipment\ShipmentState` with the states unknown, open, cancelled, returned and shipped
+- Add `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Shipment\Shipment` entity with `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Shipment\ShipmentCollection` to group shipment related information like address, tracking code, state and method
+- Add `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Shipment\ShipmentAwareInterface` to describe entities related to shipments
+- Add `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Shipment\ShipmentAwareTrait` as supporting implementation for every entity implementing `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Shipment\ShipmentAwareInterface`
+- Make `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\LineItem\Shipping` and `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\LineItem\Product` aware of their related shipments by implementing `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Shipment\ShipmentAwareInterface`
+- Add `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::aggregateShipments` to collect shipment information from all line items
+
 ### Changed
 
 ### Deprecated
+
+- Add deprecation warnings to usage of `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::$deliveryTrackingCode` in `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::getDeliveryTrackingCode` and `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::setDeliveryTrackingCode`. Use `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::aggregateShipments` with `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Shipment\Shipment` and implementations of `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Shipment\ShipmentAwareInterface` instead
 
 ### Removed
 
