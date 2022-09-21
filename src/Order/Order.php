@@ -43,6 +43,9 @@ class Order extends DatasetEntityContract
 
     protected OrderState $orderState;
 
+    /**
+     * @deprecated Create a "Transaction" instead and it to the "TransactionCollection" of the ”Order"
+     */
     protected PaymentState $paymentState;
 
     /**
@@ -50,11 +53,22 @@ class Order extends DatasetEntityContract
      */
     protected ?string $deliveryTrackingCode = null;
 
+    /**
+     * @deprecated This value is part of individual Transactions in the TransactionCollection going forward
+     */
     protected ?string $paymentTransactionCode = null;
 
+    /**
+     * @deprecated This value is part of individual Transactions in the TransactionCollection going forward
+     */
     protected ?PaymentMethod $paymentMethod = null;
 
+    /**
+     * @deprecated This value is part of individual Transactions in the TransactionCollection going forward
+     */
     protected ?Refund $refund = null;
+
+    protected TransactionCollection $transactions;
 
     public function __construct()
     {
@@ -68,7 +82,15 @@ class Order extends DatasetEntityContract
         $this->shippingAddress = new Address();
         $this->language = new Language();
         $this->orderState = new OrderState();
+        $this->transactions = new TransactionCollection();
         $this->paymentState = new PaymentState();
+    }
+
+    public function __wakeup(): void
+    {
+        if (!isset($this->transactions)) {
+            $this->transactions = new TransactionCollection();
+        }
     }
 
     public function getNumber(): string
@@ -239,18 +261,6 @@ class Order extends DatasetEntityContract
         return $this;
     }
 
-    public function getPaymentState(): PaymentState
-    {
-        return $this->paymentState;
-    }
-
-    public function setPaymentState(PaymentState $paymentState): self
-    {
-        $this->paymentState = $paymentState;
-
-        return $this;
-    }
-
     /**
      * @deprecated use deliveryTrackingCode of "Shipment" instead
      */
@@ -272,43 +282,108 @@ class Order extends DatasetEntityContract
         return $this;
     }
 
+    /**
+     * @deprecated This value is part of individual Transactions in the TransactionCollection going forward
+     */
+    public function getPaymentState(): PaymentState
+    {
+        @trigger_error('heptacom/heptaconnect-dataset-ecommerce:0.9.0.0 Using "getPaymentState()" on Orders is deprecated. Transactions and their states are handled by "Transaction" in the "TransactionCollection" going forward.', \E_USER_DEPRECATED);
+
+        return $this->paymentState;
+    }
+
+    /**
+     * @deprecated This value is part of individual Transactions in the TransactionCollection going forward
+     */
+    public function setPaymentState(PaymentState $paymentState): self
+    {
+        @trigger_error('heptacom/heptaconnect-dataset-ecommerce:0.9.0.0 Using "setPaymentState()" on Orders is deprecated. Transactions and their states are handled by "Transaction" in the "TransactionCollection" going forward.', \E_USER_DEPRECATED);
+        $this->paymentState = $paymentState;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated This value is part of individual Transactions in the TransactionCollection going forward
+     */
     public function getPaymentTransactionCode(): ?string
     {
+        @trigger_error('heptacom/heptaconnect-dataset-ecommerce:0.9.0.0 Using "getPaymentTransactionCode()" on Orders is deprecated. Transactions and their trackingCodes are handled by "Transaction" in the "TransactionCollection" going forward.', \E_USER_DEPRECATED);
+
         return $this->paymentTransactionCode;
     }
 
+    /**
+     * @deprecated This value is part of individual Transactions in the TransactionCollection going forward
+     */
     public function setPaymentTransactionCode(?string $paymentTransactionCode): self
     {
+        @trigger_error('heptacom/heptaconnect-dataset-ecommerce:0.9.0.0 Using "setPaymentTransactionCode()" on Orders is deprecated. Transactions and their trackingCodes are handled by "Transaction" in the "TransactionCollection" going forward.', \E_USER_DEPRECATED);
         $this->paymentTransactionCode = $paymentTransactionCode;
 
         return $this;
     }
 
+    /**
+     * @deprecated This value is part of individual Transactions in the TransactionCollection going forward
+     */
     public function getPaymentMethod(): ?PaymentMethod
     {
+        @trigger_error('heptacom/heptaconnect-dataset-ecommerce:0.9.0.0 Using "getPaymentMethod()" on Orders is deprecated. Transactions and their paymentMethods are handled by "Transaction" in the "TransactionCollection" going forward.', \E_USER_DEPRECATED);
+
         return $this->paymentMethod;
     }
 
+    /**
+     * @deprecated This value is part of individual Transactions in the TransactionCollection going forward
+     */
     public function setPaymentMethod(?PaymentMethod $paymentMethod): self
     {
+        @trigger_error('heptacom/heptaconnect-dataset-ecommerce:0.9.0.0 Using "setPaymentMethod()" on Orders is deprecated. Transactions and their paymentMethods are handled by "Transaction" in the "TransactionCollection" going forward.', \E_USER_DEPRECATED);
         $this->paymentMethod = $paymentMethod;
 
         return $this;
     }
 
+    /**
+     * @deprecated This value is part of individual Transactions in the TransactionCollection going forward
+     */
     public function isRefunded(): bool
     {
+        @trigger_error('heptacom/heptaconnect-dataset-ecommerce:0.9.0.0 Using "isRefunded()" on Orders is deprecated. Refunds are handled as "Transaction" in the "TransactionCollection" going forward.', \E_USER_DEPRECATED);
+
         return $this->refund instanceof Refund;
     }
 
+    /**
+     * @deprecated This value is part of individual Transactions in the TransactionCollection going forward
+     */
     public function getRefund(): ?Refund
     {
+        @trigger_error('heptacom/heptaconnect-dataset-ecommerce:0.9.0.0 Using "getRefund()" on Orders is deprecated. Refunds are handled as "Transaction" in the "TransactionCollection" going forward.', \E_USER_DEPRECATED);
+
         return $this->refund;
     }
 
+    /**
+     * @deprecated This value is part of individual Transactions in the TransactionCollection going forward
+     */
     public function setRefund(?Refund $refund): self
     {
+        @trigger_error('heptacom/heptaconnect-dataset-ecommerce:0.9.0.0 Using "setRefund()" on Orders is deprecated. Refunds are handled as "Transaction" in the "TransactionCollection" going forward.', \E_USER_DEPRECATED);
         $this->refund = $refund;
+
+        return $this;
+    }
+
+    public function getTransactions(): TransactionCollection
+    {
+        return $this->transactions;
+    }
+
+    public function setTransactions(TransactionCollection $transactions): self
+    {
+        $this->transactions = $transactions;
 
         return $this;
     }
