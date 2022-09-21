@@ -8,6 +8,8 @@ use Heptacom\HeptaConnect\Dataset\Base\Contract\DatasetEntityContract;
 use Heptacom\HeptaConnect\Dataset\Ecommerce\Address\Address;
 use Heptacom\HeptaConnect\Dataset\Ecommerce\Currency\Currency;
 use Heptacom\HeptaConnect\Dataset\Ecommerce\Customer\Customer;
+use Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Shipment\ShipmentAwareInterface;
+use Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Shipment\ShipmentCollection;
 use Heptacom\HeptaConnect\Dataset\Ecommerce\PaymentMethod\PaymentMethod;
 use Heptacom\HeptaConnect\Dataset\Ecommerce\SalesChannel\Language;
 
@@ -46,6 +48,9 @@ class Order extends DatasetEntityContract
      */
     protected PaymentState $paymentState;
 
+    /**
+     * @deprecated use deliveryTrackingCode of "Shipment" instead
+     */
     protected ?string $deliveryTrackingCode = null;
 
     /**
@@ -256,13 +261,22 @@ class Order extends DatasetEntityContract
         return $this;
     }
 
+    /**
+     * @deprecated use deliveryTrackingCode of "Shipment" instead
+     */
     public function getDeliveryTrackingCode(): ?string
     {
+        @trigger_error('heptacom/heptaconnect-dataset-ecommerce:0.9.0.0 Using "getDeliveryTrackingCode()" on Orders is deprecated. Deliveries and their trackingCodes are handled by "Shipment" going forward.', \E_USER_DEPRECATED);
+
         return $this->deliveryTrackingCode;
     }
 
+    /**
+     * @deprecated use deliveryTrackingCode of "Shipment" instead
+     */
     public function setDeliveryTrackingCode(?string $deliveryTrackingCode): self
     {
+        @trigger_error('heptacom/heptaconnect-dataset-ecommerce:0.9.0.0 Using "setDeliveryTrackingCode()" on Orders is deprecated. Deliveries and their trackingCodes are handled by "Shipment" going forward.', \E_USER_DEPRECATED);
         $this->deliveryTrackingCode = $deliveryTrackingCode;
 
         return $this;
@@ -372,5 +386,30 @@ class Order extends DatasetEntityContract
         $this->transactions = $transactions;
 
         return $this;
+    }
+
+    public function aggregateShipments(): ShipmentCollection
+    {
+        $shipmentAwareLineItems = $this->lineItems->filter(
+            static fn (LineItem $lineItem) => $lineItem instanceof ShipmentAwareInterface
+        );
+        $shipments = iterable_map(
+            $shipmentAwareLineItems,
+            static fn (ShipmentAwareInterface $lineItem) => $lineItem->getShipment()
+        );
+
+        $uniqueShipments = [];
+
+        foreach ($shipments as $shipment) {
+            foreach ($uniqueShipments as $uniqueShipment) {
+                if ($uniqueShipment === $shipment) {
+                    continue 2;
+                }
+            }
+
+            $uniqueShipments[] = $shipment;
+        }
+
+        return new ShipmentCollection($uniqueShipments);
     }
 }
