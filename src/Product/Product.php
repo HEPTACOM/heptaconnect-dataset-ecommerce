@@ -271,5 +271,4 @@ class Product extends DatasetEntityContract
 
         return $this;
     }
-
 }
