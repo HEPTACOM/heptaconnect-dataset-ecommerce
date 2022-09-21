@@ -8,5 +8,8 @@ interface ShipmentAwareInterface
 {
     public function getShipment(): ?Shipment;
 
+    /**
+     * @return static
+     */
     public function setShipment(?Shipment $shipment): self;
 }

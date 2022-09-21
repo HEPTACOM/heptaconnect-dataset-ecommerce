@@ -8,6 +8,9 @@ trait ShipmentAwareTrait
 {
     protected ?Shipment $shipment = null;
 
+    /**
+     * @return static
+     */
     public function setShipment(?Shipment $shipment): self
     {
         $this->shipment = $shipment;

@@ -315,8 +315,13 @@ class Order extends DatasetEntityContract
 
     public function aggregateShipments(): ShipmentCollection
     {
-        $shipmentAwareLineItems = $this->lineItems->filter(fn ($lineItem) => $lineItem instanceof ShipmentAwareInterface);
-        $shipments = iterable_to_array(iterable_map($shipmentAwareLineItems, fn ($lineItem) => $lineItem->getShipment()));
+        $shipmentAwareLineItems = $this->lineItems->filter(
+            static fn (LineItem $lineItem) => $lineItem instanceof ShipmentAwareInterface
+        );
+        $shipments = iterable_map(
+            $shipmentAwareLineItems,
+            static fn (ShipmentAwareInterface $lineItem) => $lineItem->getShipment()
+        );
 
         $uniqueShipments = [];
 
