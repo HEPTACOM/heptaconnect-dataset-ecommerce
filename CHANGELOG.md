@@ -15,6 +15,20 @@ The version numbers are structured like `GENERATION.MAJOR.MINOR.PATCH`:
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [0.9.1.0] - 2022-09-21
+
+### Added
+
 - Add `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Shipment\ShipmentState` with the states unknown, open, cancelled, returned and shipped
 - Add `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Shipment\Shipment` entity with `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Shipment\ShipmentCollection` to group shipment related information like address, tracking code, state and method
 - Add `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Shipment\ShipmentAwareInterface` to describe entities related to shipments
@@ -34,12 +48,6 @@ The version numbers are structured like `GENERATION.MAJOR.MINOR.PATCH`:
 
 - Add deprecation warnings to usage of `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::$deliveryTrackingCode` in `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::getDeliveryTrackingCode` and `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::setDeliveryTrackingCode`. Use `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::aggregateShipments` with `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Shipment\Shipment` and implementations of `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Shipment\ShipmentAwareInterface` instead
 - Add deprecation warnings to usage of the payment related properties `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::$paymentState`, `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::$paymentTransactionCode`, `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::$paymentMethod` and `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::$refund` in `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::getPaymentState`, `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::setPaymentState`, `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::getPaymentTransactionCode`, `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::setPaymentTransactionCode`, `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::getPaymentMethod`, `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::setPaymentMethod`, `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::isRefunded`, `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::getRefund` and `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::setRefund`. Use `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Order::getTransactions` with implementations of `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Transaction` instead
-
-### Removed
-
-### Fixed
-
-### Security
 
 ## [0.9.0.0] - 2022-04-02
 
