@@ -273,7 +273,7 @@ class Order extends DatasetEntityContract
      */
     public function getPaymentState(): PaymentState
     {
-        trigger_deprecation('heptacom/heptaconnect-dataset-ecommerce', '0.9.0.0', 'Using "getPaymentState()" on Orders is deprecated. Transactions and their states are handled by "Transaction" in the "TransactionCollection" going forward.');
+        @trigger_error('heptacom/heptaconnect-dataset-ecommerce:0.9.0.0 Using "getPaymentState()" on Orders is deprecated. Transactions and their states are handled by "Transaction" in the "TransactionCollection" going forward.', \E_USER_DEPRECATED);
 
         return $this->paymentState;
     }
@@ -283,7 +283,7 @@ class Order extends DatasetEntityContract
      */
     public function setPaymentState(PaymentState $paymentState): self
     {
-        trigger_deprecation('heptacom/heptaconnect-dataset-ecommerce', '0.9.0.0', 'Using "setPaymentState()" on Orders is deprecated. Transactions and their states are handled by "Transaction" in the "TransactionCollection" going forward.');
+        @trigger_error('heptacom/heptaconnect-dataset-ecommerce:0.9.0.0 Using "setPaymentState()" on Orders is deprecated. Transactions and their states are handled by "Transaction" in the "TransactionCollection" going forward.', \E_USER_DEPRECATED);
         $this->paymentState = $paymentState;
 
         return $this;
@@ -294,7 +294,7 @@ class Order extends DatasetEntityContract
      */
     public function getPaymentTransactionCode(): ?string
     {
-        trigger_deprecation('heptacom/heptaconnect-dataset-ecommerce', '0.9.0.0', 'Using "getPaymentTransactionCode()" on Orders is deprecated. Transactions and their trackingCodes are handled by "Transaction" in the "TransactionCollection" going forward.');
+        @trigger_error('heptacom/heptaconnect-dataset-ecommerce:0.9.0.0 Using "getPaymentTransactionCode()" on Orders is deprecated. Transactions and their trackingCodes are handled by "Transaction" in the "TransactionCollection" going forward.', \E_USER_DEPRECATED);
 
         return $this->paymentTransactionCode;
     }
@@ -304,7 +304,7 @@ class Order extends DatasetEntityContract
      */
     public function setPaymentTransactionCode(?string $paymentTransactionCode): self
     {
-        trigger_deprecation('heptacom/heptaconnect-dataset-ecommerce', '0.9.0.0', 'Using "setPaymentTransactionCode()" on Orders is deprecated. Transactions and their trackingCodes are handled by "Transaction" in the "TransactionCollection" going forward.');
+        @trigger_error('heptacom/heptaconnect-dataset-ecommerce:0.9.0.0 Using "setPaymentTransactionCode()" on Orders is deprecated. Transactions and their trackingCodes are handled by "Transaction" in the "TransactionCollection" going forward.', \E_USER_DEPRECATED);
         $this->paymentTransactionCode = $paymentTransactionCode;
 
         return $this;
@@ -315,7 +315,7 @@ class Order extends DatasetEntityContract
      */
     public function getPaymentMethod(): ?PaymentMethod
     {
-        trigger_deprecation('heptacom/heptaconnect-dataset-ecommerce', '0.9.0.0', 'Using "getPaymentMethod()" on Orders is deprecated. Transactions and their paymentMethods are handled by "Transaction" in the "TransactionCollection" going forward.');
+        @trigger_error('heptacom/heptaconnect-dataset-ecommerce:0.9.0.0 Using "getPaymentMethod()" on Orders is deprecated. Transactions and their paymentMethods are handled by "Transaction" in the "TransactionCollection" going forward.', \E_USER_DEPRECATED);
 
         return $this->paymentMethod;
     }
@@ -325,7 +325,7 @@ class Order extends DatasetEntityContract
      */
     public function setPaymentMethod(?PaymentMethod $paymentMethod): self
     {
-        trigger_deprecation('heptacom/heptaconnect-dataset-ecommerce', '0.9.0.0', 'Using "setPaymentMethod()" on Orders is deprecated. Transactions and their paymentMethods are handled by "Transaction" in the "TransactionCollection" going forward.');
+        @trigger_error('heptacom/heptaconnect-dataset-ecommerce:0.9.0.0 Using "setPaymentMethod()" on Orders is deprecated. Transactions and their paymentMethods are handled by "Transaction" in the "TransactionCollection" going forward.', \E_USER_DEPRECATED);
         $this->paymentMethod = $paymentMethod;
 
         return $this;
@@ -336,7 +336,7 @@ class Order extends DatasetEntityContract
      */
     public function isRefunded(): bool
     {
-        trigger_deprecation('heptacom/heptaconnect-dataset-ecommerce', '0.9.0.0', 'Using "isRefunded()" on Orders is deprecated. Refunds are handled as "Transaction" in the "TransactionCollection" going forward.');
+        @trigger_error('heptacom/heptaconnect-dataset-ecommerce:0.9.0.0 Using "isRefunded()" on Orders is deprecated. Refunds are handled as "Transaction" in the "TransactionCollection" going forward.', \E_USER_DEPRECATED);
 
         return $this->refund instanceof Refund;
     }
@@ -346,7 +346,7 @@ class Order extends DatasetEntityContract
      */
     public function getRefund(): ?Refund
     {
-        trigger_deprecation('heptacom/heptaconnect-dataset-ecommerce', '0.9.0.0', 'Using "getRefund()" on Orders is deprecated. Refunds are handled as "Transaction" in the "TransactionCollection" going forward.');
+        @trigger_error('heptacom/heptaconnect-dataset-ecommerce:0.9.0.0 Using "getRefund()" on Orders is deprecated. Refunds are handled as "Transaction" in the "TransactionCollection" going forward.', \E_USER_DEPRECATED);
 
         return $this->refund;
     }
@@ -356,7 +356,7 @@ class Order extends DatasetEntityContract
      */
     public function setRefund(?Refund $refund): self
     {
-        trigger_deprecation('heptacom/heptaconnect-dataset-ecommerce', '0.9.0.0', 'Using "setRefund()" on Orders is deprecated. Refunds are handled as "Transaction" in the "TransactionCollection" going forward.');
+        @trigger_error('heptacom/heptaconnect-dataset-ecommerce:0.9.0.0 Using "setRefund()" on Orders is deprecated. Refunds are handled as "Transaction" in the "TransactionCollection" going forward.', \E_USER_DEPRECATED);
         $this->refund = $refund;
 
         return $this;
