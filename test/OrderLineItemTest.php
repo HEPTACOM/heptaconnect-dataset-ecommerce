@@ -30,7 +30,7 @@ class OrderLineItemTest extends TestCase
 
         foreach ($deserializedLineItems as $deserializedLineItem) {
             foreach (\get_class_methods($deserializedLineItem) as $method) {
-                if (\substr($method, 0, 3) === 'get') {
+                if (\str_starts_with($method, 'get')) {
                     if ($method !== 'getAttachment') {
                         $deserializedLineItem->$method();
                     }

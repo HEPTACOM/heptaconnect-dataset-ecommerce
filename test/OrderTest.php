@@ -23,7 +23,7 @@ class OrderTest extends TestCase
         static::assertEquals(Order::class, \get_class($deserializedOrder));
 
         foreach (\get_class_methods($deserializedOrder) as $method) {
-            if (\substr($method, 0, 3) === 'get') {
+            if (\str_starts_with($method, 'get')) {
                 if ($method !== 'getAttachment') {
                     $deserializedOrder->$method();
                 }
