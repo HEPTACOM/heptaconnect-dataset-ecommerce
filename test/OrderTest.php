@@ -20,10 +20,10 @@ class OrderTest extends TestCase
         $serializedOrder = StaticPayloads::SERIALIZED_DEFAULT_ORDER_V0_9_0_0;
         $deserializedOrder = \unserialize($serializedOrder);
 
-        static::assertEquals(Order::class, \get_class($deserializedOrder));
+        static::assertEquals(Order::class, $deserializedOrder::class);
 
         foreach (\get_class_methods($deserializedOrder) as $method) {
-            if (\substr($method, 0, 3) === 'get') {
+            if (\str_starts_with($method, 'get')) {
                 if ($method !== 'getAttachment') {
                     $deserializedOrder->$method();
                 }
