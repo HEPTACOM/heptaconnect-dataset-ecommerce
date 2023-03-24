@@ -16,6 +16,10 @@ class ShipmentState
 
     public const STATE_SHIPPED = '659cec14-9f11-4d2d-b118-65a90d30e5dc';
 
+    public const STATE_PARTIALLY_SHIPPED = 'fe47d696-0f77-4e48-8bbf-7f5943fcce46';
+
+    public const STATE_PARTIALLY_RETURNED = 'e5f1c5a7-16b0-479e-adb0-bd77a998a47a';
+
     protected string $state = self::STATE_UNKNOWN;
 
     public function getState(): string
