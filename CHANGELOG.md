@@ -27,6 +27,13 @@ The version numbers are structured like `GENERATION.MAJOR.MINOR.PATCH`:
 
 ### Security
 
+## [0.9.2.0] - 2023-03-24
+
+### Added
+
+- Add `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Shipment\ShipmentState::STATE_PARTIALLY_SHIPPED`
+- Add `\Heptacom\HeptaConnect\Dataset\Ecommerce\Order\Shipment\ShipmentState::STATE_PARTIALLY_RETURNED`
+
 ## [0.9.1.0] - 2022-09-21
 
 ### Added
